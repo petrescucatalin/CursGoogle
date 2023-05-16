@@ -1,0 +1,26 @@
+{% extends 'application2/base_generic.html' %}
+
+{% block content %}
+  <h1>Company List</h1>
+
+  {% if companies %}
+    <ul>
+    {% for company in companies %}
+      <li>
+        <strong>{{ company.name }}</strong> ({{ company.website }})
+        <a href="{% url 'company_edit' company.pk %}">Edit</a> |
+        <a href="{% url 'company_delete' company.pk %}">Delete</a> |
+        {% if company.is_active %}
+          <a href="{% url 'company_deactivate' company.pk %}">Deactivate</a>
+        {% else %}
+          <a href="{% url 'company_activate' company.pk %}">Activate</a>
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>No companies yet.</p>
+  {% endif %}
+
+  <a href="{% url 'company_add' %}">Add a new company</a>
+{% endblock %}

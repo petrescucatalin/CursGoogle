@@ -1,0 +1,9 @@
+{% extends 'application2/base_generic.html' %}
+
+{% block content %}
+  <h1>{{ object.name }}</h1>
+  <p>Website: {{ object.website }}</p>
+  <p>Location: {{ object.location }}</p>
+  <a href="{% url 'company_edit' object.id %}">Edit</a> |
+  <a href="{% url 'company_delete' object.id %}">Delete</a>
+{% endblock %}

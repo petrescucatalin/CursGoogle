@@ -1,0 +1,20 @@
+<!-- application2/company_edit.html -->
+
+<form method="POST">
+  {% csrf_token %}
+  {% if company_form.instance.id %}
+    <h1>Edit Company</h1>
+  {% else %}
+    <h1>Add Company</h1>
+  {% endif %}
+  {{ company_form.as_p }}
+  <h2>Location</h2>
+  {{ location_form.as_p }}
+  <button type="submit">
+    {% if company_form.instance.id %}
+      Save Changes
+    {% else %}
+      Create Company
+    {% endif %}
+  </button>
+</form>

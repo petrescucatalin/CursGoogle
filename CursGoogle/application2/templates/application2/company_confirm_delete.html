@@ -1,0 +1,10 @@
+{% extends 'application2/base_generic.html' %}
+
+{% block content %}
+<h2>Delete company</h2>
+<p>Are you sure you want to delete "{{ company.name }}"?</p>
+<form method="POST">
+{% csrf_token %}
+<button type="submit">Confirm</button>
+</form>
+{% endblock %}
